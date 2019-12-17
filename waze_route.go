@@ -137,3 +137,11 @@ func (r *Route) TravelTimes() []int {
 	}
 	return times
 }
+
+func (r *Route) DistanceFromTarget() []int {
+	var times []int
+	for _, a := range r.Alternatives {
+		times = append(times, a.Response.DistanceFromTarget)
+	}
+	return times
+}
