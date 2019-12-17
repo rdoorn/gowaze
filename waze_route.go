@@ -145,3 +145,15 @@ func (r *Route) DistanceFromTarget() []int {
 	}
 	return times
 }
+
+func (r *Route) Distance() []int {
+	var times []int
+	for _, a := range r.Alternatives {
+		t := 0
+		for _, r := range a.Response.Results {
+			t += r.Length
+		}
+		times = append(times, t)
+	}
+	return times
+}
