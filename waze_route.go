@@ -157,3 +157,11 @@ func (r *Route) Distance() []int {
 	}
 	return times
 }
+
+func (r *Response) Distance() int {
+	t := 0
+	for _, r := range r.Results {
+		t += r.Length
+	}
+	return t
+}
